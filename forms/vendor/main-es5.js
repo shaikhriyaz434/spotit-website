@@ -779,11 +779,20 @@
                         if (!data._2w_is_available) {
                             data._2w = undefined;
                         }
+                        else {
+                            data._2w_min_charge = data._2w.min_charge;
+                        }
                         if (!data._4w_is_available) {
                             data._4w = undefined;
                         }
+                        else {
+                            data._4w_min_charge = data._4w.min_charge;
+                        }
                         if (!data._hv_is_available) {
                             data._hv = undefined;
+                        }
+                        else {
+                            data._hv_min_charge = data._hv.min_charge;
                         }
                         var parkingLot = JSON.parse(JSON.stringify(data));
                         payload.parkingLotTypes.push(parkingLot);
@@ -889,7 +898,7 @@
                             resolve({ lng: resp.coords.longitude, lat: resp.coords.latitude });
                         }, function (err) {
                             reject(err);
-                        });
+                        }, { enableHighAccuracy: true });
                     });
                 };
                 return PositionService;
@@ -911,9 +920,9 @@
             __webpack_require__.r(__webpack_exports__);
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function () { return environment; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-            // This file can be replaced during build by using the `fileReplacements` array.
-            // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-            // The list of file replacements can be found in `angular.json`.
+            // !This file can be replaced during build by using the `fileReplacements` array.
+            // !`ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+            // !The list of file replacements can be found in `angular.json`.
             var environment = {
                 production: false
             };
